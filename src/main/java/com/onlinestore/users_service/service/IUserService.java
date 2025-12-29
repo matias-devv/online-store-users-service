@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface IUserService {
 
-    public String createUser(User user);
+    public String createUser(UserDTO userDTO);
 
     public String createAllUsers(List<User> users);
 
-    public String updateUser(User user);
+    public String updateUser(UserDTO userDTO);
 
     public String deleteUser(Long id);
 

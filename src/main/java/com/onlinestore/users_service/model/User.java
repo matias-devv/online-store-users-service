@@ -1,13 +1,12 @@
 package com.onlinestore.users_service.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity @AllArgsConstructor @NoArgsConstructor @Setter @Getter
 public class User {
@@ -17,4 +16,7 @@ public class User {
     private String username;
     private String dni;
     private String gmail;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<Long> ids_shopping_cart;
 }

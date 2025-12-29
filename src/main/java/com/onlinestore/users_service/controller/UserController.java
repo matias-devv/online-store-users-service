@@ -16,8 +16,8 @@ public class UserController {
     private IUserService iUserService;
 
     @PostMapping("/create")
-    public String createUser(@RequestBody User user){
-        return iUserService.createUser(user);
+    public String createUser(@RequestBody UserDTO userDTO){
+        return iUserService.createUser(userDTO);
     }
 
     @PostMapping("/create-all")
@@ -26,8 +26,8 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public String updateUser(@RequestBody User user){
-        return iUserService.updateUser(user);
+    public String updateUser(@RequestBody UserDTO userDTO){
+        return iUserService.updateUser(userDTO);
     }
 
     @DeleteMapping("/delete/{id}")

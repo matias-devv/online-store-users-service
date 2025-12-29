@@ -16,9 +16,18 @@ public class UserService implements IUserService{
     private IUserRepository iUserRepository;
 
     @Override
-    public String createUser(User user) {
-        iUserRepository.save(user);
+    public String createUser(UserDTO userDTO) {
+        iUserRepository.save( this.convertDTOtoEntity(userDTO));
         return "The user was successfully created";
+    }
+
+    private User convertDTOtoEntity(UserDTO userDTO) {
+        User user = new User();
+        user.setDni(userDTO.getDni());
+        user.setGmail(userDTO.getGmail());
+        user.setUsername(userDTO.getUsername());
+        user.setIds_shopping_cart(userDTO.getIds_shopping_cart());
+        return user;
     }
 
     @Override
@@ -27,8 +36,10 @@ public class UserService implements IUserService{
         return "The users have been successfully created";
     }
 
+    //The main function of this method is to update the USER product list
     @Override
-    public String updateUser(User user) {
+    public String updateUser(UserDTO userDTO) {
+        User user = this.convertDTOtoEntity(userDTO);
         iUserRepository.save(user);
         return "The user was successfully updated";
     }

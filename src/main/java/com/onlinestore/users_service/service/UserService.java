@@ -39,7 +39,16 @@ public class UserService implements IUserService{
     //The main function of this method is to update the USER product list
     @Override
     public String updateUser(UserDTO userDTO) {
-        User user = this.convertDTOtoEntity(userDTO);
+        User user = iUserRepository.findById(userDTO.getId()).orElse(null);
+
+        if ( user == null){
+            return "The user could not be found";
+        }
+
+        user.setGmail(userDTO.getGmail());
+        user.setUsername(userDTO.getUsername());
+        user.setDni(userDTO.getDni());
+        user.setIds_shopping_cart(userDTO.getIds_shopping_cart());
         iUserRepository.save(user);
         return "The user was successfully updated";
     }

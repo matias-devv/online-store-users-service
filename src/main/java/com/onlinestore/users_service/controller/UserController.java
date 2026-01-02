@@ -31,12 +31,12 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteUser(Long id){
+    public String deleteUser(@PathVariable Long id){
         return iUserService.deleteUser(id);
     }
 
     @GetMapping("/find/{id}")
-    public UserDTO findByUserId(Long id){
+    public UserDTO findByUserId(@PathVariable Long id){
         return iUserService.findByUserId(id);
     }
 

@@ -71,6 +71,7 @@ public class UserService implements IUserService{
         userDTO.setUsername(user.getUsername());
         userDTO.setDni(user.getDni());
         userDTO.setGmail(user.getGmail());
+        userDTO.setIds_shopping_cart(user.getIds_shopping_cart());
         return userDTO;
     }
 

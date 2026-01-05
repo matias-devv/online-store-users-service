@@ -1,4 +1,4 @@
-# 👤 Users Service
+# Users Service
 
 <br>
 
